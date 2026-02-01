@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="content">
+    <div class="header">
+      <h1>Vehicle-API</h1>
+      <h3> by APIvengers</h3>
+    </div>
+    <div class="tile-container">
+      <div class="status-tile">
+        <h3>Clima</h3>
+        <p id="status-front-heating">
+          The heating in the car is turned <span class="highlight">{{isHeatingActive == true ? "ON" : "OFF"}}</span>
+        </p>
+        <p>The current Ambient Air Temperature in the car is  <span class="highlight">{{currentAirTemp}}°C</span></p>
+        <button (click)="toggleHeating()">Click to Turn {{isHeatingActive == true ? "OFF" : "ON"}}</button>
+      </div>
+      <div class="status-tile">
+        <h3>Door</h3>
+        <p id="status-left-front-door">
+          The Door is currently  <span class="highlight">{{isDoorLocked ? "LOCKED" : "UNLOCKED"}}</span>
+          and  <span class="highlight">{{isDoorOpen ? "OPEN" : "CLOSED" }}</span>
+        </p>
+        <button id="toggleDoorLock" (click)="toggleDoorLock()" [disabled]="isDoorOpen" [ngClass]="{'disabled': isDoorOpen}">Click to {{isDoorLocked ? "UNLOCK" : "LOCK"}} the door</button>
+      </div>
+      <div class="status-tile">
+        <h3>Charging</h3>
+        <p>Battery Level:  <span class="highlight">{{currentChargingState}}%</span></p>
+        <p>Charging Cable is  <span class="highlight">{{isChargingCableConnected ? "" : "not"}} connected</span></p>
+        <p>The Car is currently  <span class="highlight">{{isCharging ? "" : "not" }} charging</span></p>
+        <button id="toggleCharging" (click)="toggleCharging()">Click to {{startStopCharging == "START" ? "STOP charging" : "START charging"}}</button>
+      </div>
+    </div>
+  </div>
+</div>
